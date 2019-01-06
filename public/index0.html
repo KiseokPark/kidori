@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Smart Contract</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<script src="assets/js/jquery.min.js"></script>
+
+	<script>
+
+	$(document).ready(function(){
+		function getCookie (name){
+			var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+			return value? value[2] : null;
+		};
+		$("#loginBtn").html("Welcome, " + getCookie('user_id') + "</span></a></li>");
+		 function deleteCookie (name){
+
+			var delConfirm = confirm('Do you want to sign out?');
+			if (delConfirm) {
+				alert('Sign out successful');
+				document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+				window.location.href = "/";
+			}
+		}
+		$('#logoutBtn').click(function(){
+		  deleteCookie('user_id');
+		});
+		//$("#sidebar").load("public/assets/html/siderBar.html");
+
+	});
+
+	</script>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Kidori</strong> Smart Contract</a>
+									<ul class="icons">
+										<!--<li><a href="#" class="button primary small" style="font-size: 0.4em; height: 3em;" ><span class="label">로그인</span></a></li> -->
+										<li><a id="logoutBtn" class="button small"><span class="label" id="loginBtn" name="loginBtn">  </span></a></li>
+
+									</ul>
+								</header>
+
+								<section>
+									<header class="major">
+										<h2>Introduce</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<h3>Decentralization</h3>
+											<p>암호화폐의 노드는 부분 또는 전체의 블록체인을 가지고 있다. 이것이 페이팔과 같은 시스템에서 필요로 하는, 중앙 집중형 데이터베이스를 가지고 있을 필요가 없게 한다.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<h3>BlockChain</h3>
+											<p>관리 대상 데이터를 '블록'이라고 하는 소규모 데이터들이 P2P 방식을 기반으로 생성된 체인 형태의 연결고리 기반 분산 데이터 저장환경에 저장되어 누구라도 임의로 수정할 수 없고 누구나 변경의 결과를 열람할 수 있는 분산 컴퓨팅 기술 기반의 데이터 위변조 방지 기술</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<h3>Structure</h3>
+											<p>블록 검색시 데이터베이스 인덱스 방식으로 데이터 값을 찾고 해쉬 값은 이전 블록들의 값에 영향을 받아 생성되므로 위/변조행위가 어려움</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<h3>Baek Seorami</h3>
+											<p>Angry Baek Seorami</p>
+										</article>
+
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar" name="sidebar" class="inactive">
+											<!--   <div id="sidebar" name="sidebar" class="inactive"> name class 넣으면 엑시티조절  -->
+						<div class="inner">
+
+					    <!-- Search
+					      <section id="search" class="alt">
+					        <form method="post" action="#">
+					          <input type="text" name="query" id="query" placeholder="Search" />
+					        </form>
+					      </section>
+					    -->
+					    <!-- Menu -->
+					      <nav id="menu">
+					        <header class="major">
+					          <h2>Menu</h2>
+					        </header>
+					        <ul>
+					          <li><a href="index.html">HOME</a></li>
+					          <li>
+					            <span class="opener">Ethereum</span>
+					            <ul>
+					              <li><a href="/etherInfo">What is Ethereum</a></li>
+					              <li><a href="/etherSend">Smart Contract TEST</a></li>
+					              <li><a href="/etherScan">Ethereum Scan</a></li>
+					            </ul>
+					          </li>
+					          <li>
+					            <span class="opener">Hyperledger Fabric</span>
+					            <ul>
+					              <li><a href="#">What is Hyperledger</a></li>
+					              <li><a href="hyper_contract.html">Chain Code TEST</a></li>
+					              <li><a href="#">Hyperledger Scan</a></li>
+					            </ul>
+					          </li>
+					          <li>
+					            <span class="opener">IPFS</span>
+					            <ul>
+					              <li><a href="#">What is IPFS</a></li>
+					              <li><a href="hyper_contract.html">TEST</a></li>
+					              <li><a href="#">IPFS Scan</a></li>
+					            </ul>
+					          </li>
+
+					        </ul>
+					      </nav>
+					      <section>
+					        <header class="major">
+					          <h2>연락처</h2>
+					        </header>
+					        <ul class="contact">
+					          <li class="fa-envelope-o"><a href="#">black9817@gmail.com</a></li>
+					          <li class="fa-phone">010-4892-xxxx</li>
+					          <li class="fa-home">서울특별시 금천구<br /></li>
+					        </ul>
+					      </section>
+
+					    <!-- Footer -->
+					      <footer id="footer">
+					        <p class="copyright">&copy; Untitled. All rights reserved. </a>.</p>
+					      </footer>
+
+					  </div>
+
+					</div>
+
+			</div>
+
+
+
+		<!-- Scripts -->
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

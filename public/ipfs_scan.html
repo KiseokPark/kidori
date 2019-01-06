@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<title>Smart Contract</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script language="javascript" type="text/javascript" src="assets/js/jquery.min.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/my_util.js" charset="utf-8"></script>
+		<script>
+
+		$(document).ready(function(){
+
+			$('#scanBtn').click(function(){
+				var path = 'etherLog/';
+				$.ajax({
+					 url: '/ipfsScan',
+						 dataType: 'json',
+						 type: 'POST',
+						 success: function(result) {
+							 var list = result.fileList;
+							 //file_name, ipfs_hash, user_id, file_original_name
+//							 alert(list[0].file_original_name);
+
+								 if (result) {
+									 	var tempStr='<ul class="alt">';
+										for(var i=0 ; i<list.length ; i++){
+											tempStr=tempStr+'<li><a target="_blank" style="color: gray" href="http://localhost:8080/ipfs/'+list[i].ipfs_hash+'">FileName : '+list[i].file_original_name+'<br>Hash : '+list[i].ipfs_hash+'</a></li>';
+										}
+										tempStr=tempStr+'</ul>';
+										$('#addBox').html(tempStr);
+
+								 }
+						 	}
+					});
+
+
+			});
+		});
+
+		</script>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<header id="header">
+								<a href="index.html" class="logo"><strong>Kidori</strong> IPFS</a>
+								<ul class="icons">
+									<li><a id="logoutBtn" class="button small" onclick="deleteCookie('user_id');"><span class="label" id="loginBtn" name="loginBtn">  </span></a></li>
+								</ul>
+							</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+									</header>
+										<h3>File List</h3>
+											<div id="addBox">
+											</div>
+
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="button" value="Scan" class="primary" id="scanBtn" onclick="" /></li>
+												</ul>
+											</div>
+								</section>
+
+						</div>
+					</div>
+
+					<!--sidebar-->
+					<div id="sidebar">
+					<!--   <div id="sidebar" name="sidebar" class="inactive"> name class 넣으면 엑시티조절  -->
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+	</body>
+</html>

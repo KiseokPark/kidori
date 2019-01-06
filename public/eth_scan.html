@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>Smart Contract</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script language="javascript" type="text/javascript" src="web3.min.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/jquery.min.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/ganache_test.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/my_util.js" charset="utf-8"></script>
+		<script>
+
+		$(document).ready(function(){
+			$('#scanBtn').click(function(){
+					var con_cnt = getCnt();
+					var tempStr='';
+					for(var i=0 ; i<con_cnt ; i++){
+						tempStr=tempStr +'<div class="box"><p>'+'Date : '+getDate(i)+'<br>Email : '+getEmail(i)+'<br>Description : '+getMessage(i)+'</p></div>';
+					}
+					$('#addBox').html(tempStr);
+			});
+
+			$('#logBtn').click(function(){
+				var path = 'etherLog/';
+				$.ajax({
+					 url: '/etherScan',
+						 dataType: 'json',
+						 type: 'POST',
+						 data: {data:path},
+						 success: function(result) {
+								 if (result) {
+									 	var tempStr='<ul class="alt">';
+										for(var i=0 ; i<result.filelist.length ; i++){
+											tempStr=tempStr+'<li><a target="_blank" href="etherLog/'+result.filelist[i]+'">'+result.filelist[i]+'</a></li>';
+										}
+										tempStr=tempStr+'</ul>';
+										$('#addBox').html(tempStr);
+
+								 }
+						 	}
+					});
+
+
+			});
+		});
+
+		</script>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<header id="header">
+								<a href="index.html" class="logo"><strong>Kidori</strong> Ethereum Contract</a>
+								<ul class="icons">
+									<li><a id="logoutBtn" class="button small" onclick="deleteCookie('user_id');"><span class="label" id="loginBtn" name="loginBtn">  </span></a></li>
+								</ul>
+							</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+									</header>
+										<h3>Contract List</h3>
+											<div id="addBox">
+											</div>
+
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="button" value="Scan" class="primary" id="scanBtn" onclick="" /></li>
+													<li><input type="button" value="Log" class="primary" id="logBtn" onclick="" /></li>
+												</ul>
+											</div>
+								</section>
+
+						</div>
+					</div>
+
+					<!--sidebar-->
+					<div id="sidebar">
+					<!--   <div id="sidebar" name="sidebar" class="inactive"> name class 넣으면 엑시티조절  -->
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+	</body>
+</html>

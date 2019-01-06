@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "user": "root",
+  "password": "111111",
+  "database": "o2",
+  "ipfsIp" : "localhost"
+}

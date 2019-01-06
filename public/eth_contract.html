@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Smart Contract</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script language="javascript" type="text/javascript" src="web3.min.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/jquery.min.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/ganache_test.js" charset="utf-8"></script>
+		<script language="javascript" type="text/javascript" src="assets/js/my_util.js" charset="utf-8"></script>
+		<script>
+
+		$(document).ready(function(){
+
+			//RESET 버튼설정
+			$('#resetBtn').click(function(){
+				$('#userMessage').val("");
+				$('#userEmail').val("");
+
+			});
+
+			//기본값 세팅
+			$('#userId').val(getCookie('user_id'));
+			var date = new Date();
+			$('#inputDate').val(date.getFullYear()+'-'+(date.getMonth()+1) +'-' + date.getDate());
+
+		});
+
+		</script>
+
+	</head>
+
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Kidori</strong> Ethereum Contract</a>
+						<ul class="icons">
+							<li><a id="logoutBtn" class="button small" onclick="deleteCookie('user_id');"><span class="label" id="loginBtn" name="loginBtn">  </span></a></li>
+					</ul>
+					</header>
+
+													<section>
+														<header class="major">
+															<h2>Contract Form</h2>
+														</header>
+														<div class="posts">
+															<article>
+																<h3>Form</h3>
+																<p>
+																<form method="post" action="/etherSend">
+																	<div class="row gtr-uniform">
+
+																		<div class="col-6 col-12-xsmall">
+																			<input type="text" name="userId" id="userId" value="" readonly/>
+																		</div>
+
+
+																		<div class="col-6 col-12-xsmall">
+																			<input type="text" name="userEmail" id="userEmail" value="" placeholder="Email"/>
+																		</div>
+
+																		<div class="col-12">
+																			<input type="text" name="inputDate" id="inputDate" readonly/>
+																		</div>
+
+																		<div class="col-12">
+																			<textarea name="userMessage" id="userMessage" placeholder="Enter your message" rows="6"></textarea>
+																		</div>
+																		<!-- Break -->
+																		<div class="col-12">
+																			<ul class="actions">
+																				<li><input type="button" value="Smart Contract" class="primary" onclick="checkNull();" /></li>
+																				<li><input type="button" id="resetBtn" value="Reset" /></li>
+																			</ul>
+																		</div>
+																	</div>
+																</form>
+															</p>
+															</article>
+
+														</div>
+													</section>
+
+											</div>
+										</div>
+
+										<!--sidebar-->
+										<div id="sidebar">
+
+										</div>
+
+								</div>
+
+							<!-- Scripts -->
+								<script src="assets/js/jquery.min.js"></script>
+								<script src="assets/js/browser.min.js"></script>
+								<script src="assets/js/breakpoints.min.js"></script>
+								<script src="assets/js/util.js"></script>
+								<script src="assets/js/main.js"></script>
+
+						</body>
+					</html>
