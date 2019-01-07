@@ -1,4 +1,4 @@
-﻿//나의 외부IP 211.58.31.124:3000
+
 var express = require('express'); //모듈은 함수다 그래서 밑에서 실행
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -10,7 +10,7 @@ var myIp = myConfig.host;
 // js 추가 방법 var mysqlConfig = require('./mysql_config.js');
 //////////////////////////////////////////////////////////////////////
 
-//var myIp = '192.168.25.3';
+
 //var myIp = '127.0.0.1';
 var myPort = 80; //webPort
 
